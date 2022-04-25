@@ -1,0 +1,57 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/grpc-crud/src",
+  "monorepo": true,
+  "root": "apps/grpc-crud",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/grpc-crud/tsconfig.app.json"
+  },
+  "projects": {
+    "grpc-crud": {
+      "type": "application",
+      "root": "apps/grpc-crud",
+      "entryFile": "main",
+      "sourceRoot": "apps/grpc-crud/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/grpc-crud/tsconfig.app.json"
+      }
+    },
+    "grpc-server": {
+      "type": "application",
+      "root": "apps/grpc-server",
+      "entryFile": "main",
+      "sourceRoot": "apps/grpc-server/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/grpc-server/tsconfig.app.json"
+      }
+    },
+    "proto": {
+      "type": "library",
+      "root": "libs/proto",
+      "entryFile": "index",
+      "sourceRoot": "libs/proto/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/proto/tsconfig.lib.json"
+      }
+    },
+    "grpc-client": {
+      "type": "application",
+      "root": "apps/grpc-client",
+      "entryFile": "main",
+      "sourceRoot": "apps/grpc-client/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/grpc-client/tsconfig.app.json"
+      }
+    },
+    "postgres-server": {
+      "type": "application",
+      "root": "apps/postgres-server",
+      "entryFile": "main",
+      "sourceRoot": "apps/postgres-server/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/postgres-server/tsconfig.app.json"
+      }
+    }
+  }
+}
