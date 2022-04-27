@@ -27,6 +27,7 @@ export class GrpcClientController implements OnModuleInit {
   @Client({
     transport: Transport.GRPC,
     options: {
+      url: 'localhost:3001',
       package: 'user',
       protoPath: 'libs/proto/user.proto',
     },

@@ -1,0 +1,20 @@
+export const postgresConfiguration = () => ({
+  database: {
+    type: 'postgres',
+    host: process.env.POSTGRES_HOST,
+    port: parseInt(process.env.POSTGRES_PORT, 10) || 5432,
+    username: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DATABASE,
+    entities: [__dirname + 'src/**/entities/*.entity{.ts,.js}'],
+    synchronize: true,
+    migrationsTableName: 'migration',
+    migrationsRun: process.env.RUN_MIGRATIONS === 'true',
+    migrations: ['src/migration/*{.ts,.js}'],
+    subscribers: ['src/subscriber/*{.js,.ts}'],
+    ssl: process.env.MODE != 'DEV',
+    logging: true,
+    logger: 'file',
+    autoLoadEntities: true,
+  },
+});
